@@ -21,7 +21,7 @@ app=Flask(__name__)
 
 def home():
 
-    return render_template('index.html')
+    return render_template('todo.html')
  
 @app.route('/submit',methods=['POST'])
 def submit():
