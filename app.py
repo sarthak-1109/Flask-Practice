@@ -40,6 +40,25 @@ def get_data():
     data=json.load(file)    
     return jsonify(data)
 
+@app.route('/submittodoitem', methods=['POST'])
+def submit_todo_item():
+    try:
+        item_name = request.form.get('itemName')
+        item_description = request.form.get('itemDescription')
+
+        if not item_name or not item_description:
+            return jsonify({"error": "All fields are required"}), 400
+
+        collection.insert_one({
+            "itemName": item_name,
+            "itemDescription": item_description
+        })
+
+        return jsonify({"message": "To-Do item added successfully"})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 
 @app.route('/view')
 def view():
