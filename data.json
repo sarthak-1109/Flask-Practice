@@ -14,4 +14,9 @@
     "name": "Orange",
     "price": 60
   }
+   {
+    "id": 4,
+    "name": "Strawberry",   
+    "price": 80
+  }
 ]
